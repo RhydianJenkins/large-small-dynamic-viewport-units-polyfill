@@ -1,3 +1,5 @@
+var timer;
+
 var setVh = function () {
     var svh = document.documentElement.clientHeight * 0.01;
     document.documentElement.style.setProperty('--1svh', (svh + "px"));
@@ -64,7 +66,8 @@ var initialize = function () {
 
     // We run the calculation when window is resized
     window.addEventListener('resize', function () {
-        setVh();
+        clearTimeout(timer)
+        timer = setTimeout(setVh, 200)
     });
 }
 
